@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Statistics</title>
+</head>
+<body>
+    <h1>Survey Statistics</h1>
+    <p>Total Participants: <%= stats.total %></p>
+    <h2>Version 1 (Questions 1-5)</h2>
+    <p>Total Version 1 Responses: <%= stats.version1.count %></p>
+    <% for (let question in stats.version1.questions) { %>
+        <h3><%= question %></h3>
+        <% for (let option in stats.version1.questions[question]) { %>
+            <p>Option <%= option %>: <%= stats.version1.questions[question][option].count %> responses, <%= stats.version1.questions[question][option].percentage %>%</p>
+        <% } %>
+    <% } %>
+
+    <h2>Version 2 (Questions 6-10)</h2>
+    <p>Total Version 2 Responses: <%= stats.version2.count %></p>
+    <% for (let question in stats.version2.questions) { %>
+        <h3><%= question %></h3>
+        <% for (let option in stats.version2.questions[question]) { %>
+            <p>Option <%= option %>: <%= stats.version2.questions[question][option].count %> responses, <%= stats.version2.questions[question][option].percentage %>%</p>
+        <% } %>
+    <% } %>
+</body>
+</html>
